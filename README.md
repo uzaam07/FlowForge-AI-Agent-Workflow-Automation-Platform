@@ -264,10 +264,10 @@ This project demonstrates practical experience in:
 
 ## 👨‍💻 Author
 
-**Uzaam Shaad K**
-
-- GitHub: [@uzaam07](https://github.com/uzaam07)
-- LinkedIn: [Uzaam Shaad K](https://www.linkedin.com/in/uzaamshaad/)
+- **Name:** Uzaam Shaad K
+- **GitHub:** [uzaam07](https://github.com/uzaam07)
+- **Portfolio:** [uzaam07.github.io](https://uzaam07.github.io/Portfolio/)
+- **LinkedIn:** [linkedin.com/in/uzaamshaad](https://linkedin.com/in/uzaamshaad)
 
 ---
 
