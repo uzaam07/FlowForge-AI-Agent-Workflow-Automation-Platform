@@ -1,15 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables
 .env
 .env.*
 !.env.example
-**/.venv/
-**/venv/
-**/__pycache__/
-**/.pytest_cache/
-**/node_modules/
-**/dist/
-*.py[cod]
+
+# Frontend
+node_modules/
+dist/
+
+# Local databases
 *.db
-*.sqlite*
-.coverage
-.DS_Store
-Thumbs.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
