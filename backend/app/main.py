@@ -34,9 +34,11 @@ def root():
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(CORSMiddleware, allow_origins=settings.allowed_origins, allow_credentials=False, allow_methods=["GET","POST","PUT","PATCH","DELETE","OPTIONS"], allow_headers=["Authorization","Content-Type"], max_age=600)
-if settings.app_env == "production":
-    allowed_hosts = [o.split("://", 1)[-1].split("/", 1)[0] for o in settings.allowed_origins]
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts)
+if settings.app_env.lower() == "production":
+    app.add_middleware(
+        TrustedHostMiddleware,
+        allowed_hosts=settings.allowed_hosts
+    )
 
 @app.middleware("http")
 async def secure_headers_and_body_limit(request: Request, call_next):
