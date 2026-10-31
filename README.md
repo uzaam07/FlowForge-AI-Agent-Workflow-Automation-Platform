@@ -2,16 +2,12 @@
 
 A full-stack workflow automation platform built with **FastAPI, SQLAlchemy, React, TypeScript, and Vite**. FlowForge provides a visual workspace for creating, managing, and executing workflows through an interactive interface and REST API.
 
----
-
 ## 🚀 Live Demo
 
 - **Frontend:** https://flowforge-ai-e7nl.onrender.com
 - **Backend API:** https://flowforge-ai-api-o1x2.onrender.com
 
 > **Important — activate the backend first:** The backend runs on a free hosting service and may sleep after inactivity. First open the [Backend API](https://flowforge-ai-api-o1x2.onrender.com/) and wait for it to respond. Then open the [Frontend](https://flowforge-ai-e7nl.onrender.com/) and use the application. The first request may take a little while while the backend wakes up. Authentication and workspace features require both services to be available
-
----
 
 ## ✨ Overview
 
@@ -20,8 +16,6 @@ A full-stack workflow automation platform built with **FastAPI, SQLAlchemy, Reac
 The platform combines a React-based frontend with a FastAPI backend, providing an interactive environment for managing workflows and communicating with backend services through REST APIs.
 
 It is designed as a portfolio-ready software engineering project demonstrating full-stack development, API integration, database management, backend architecture, and workflow execution.
-
----
 
 ## ✨ Features
 
@@ -67,8 +61,6 @@ It is designed as a portfolio-ready software engineering project demonstrating f
 - Vite-powered frontend development and production builds.
 - FastAPI health-check endpoint for backend availability.
 
----
-
 ## 💻 Tech Stack
 
 | Layer / Category | Technologies | Purpose |
@@ -87,8 +79,6 @@ It is designed as a portfolio-ready software engineering project demonstrating f
 | **Database Hosting** | Neon PostgreSQL | Provide managed PostgreSQL database hosting for production. |
 | **Version Control** | Git, GitHub | Track source-code changes and manage the project repository. |
 | **Development Environment** | Visual Studio Code, npm | Support application development, dependency management, and frontend workflows. |
-
----
 
 ## 🧠 Working Algorithm
 
@@ -141,8 +131,6 @@ It is designed as a portfolio-ready software engineering project demonstrating f
 6. CORS configuration controls which frontend origins are permitted to access the backend API.
 
 > **Execution note:** Workflow execution is handled by the backend workflow engine. The actual operations depend on the workflow configuration and execution logic implemented in the application. External integrations, distributed execution, and background job processing should only be documented as supported once they are implemented.
-
----
 
 ## 📂 Project Structure
 
@@ -271,8 +259,6 @@ npm run build
 
 The generated production files are placed inside the `dist/` directory.
 
----
-
 ## 🧪 Backend Testing
 
 FlowForge includes a backend test suite to validate core application functionality.
@@ -290,8 +276,6 @@ The test suite was verified with:
 ```
 
 The warning was related to a Starlette/httpx deprecation and did not affect the test results.
-
----
 
 ## 🌐 Deployment
 
@@ -328,8 +312,6 @@ VITE_API_BASE_URL=https://your-backend-domain
 
 Never commit production secrets, `.env` files, virtual environments, local databases, or generated build directories to GitHub.
 
----
-
 ## 🎯 Project Goals
 
 This project demonstrates practical experience in:
@@ -342,8 +324,6 @@ This project demonstrates practical experience in:
 - Frontend development using React and TypeScript.
 - Environment-based configuration and deployment.
 - Automated backend testing.
-
----
 
 ## 👨‍💻 Author
 
