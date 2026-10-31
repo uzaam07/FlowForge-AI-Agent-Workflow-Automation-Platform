@@ -1,69 +1,274 @@
-# FlowForge AI — Workflow Studio
+# FlowForge AI — AI Agent Workflow Automation Platform
 
-A portfolio-grade AI workflow automation starter with a distinctive warm-paper / charcoal / coral interface, FastAPI backend, React + TypeScript frontend, workflow graph validation, execution history, and account-scoped data.
+A full-stack workflow automation platform built with **FastAPI, SQLAlchemy, React, TypeScript, and Vite**. FlowForge provides a visual workspace for creating, managing, and executing workflows through an interactive interface and REST API.
 
-## Features
-- Email/password registration and login; passwords hashed with Argon2.
-- Expiring signed bearer tokens; admin route protected by a server-side role dependency.
-- User-scoped workflow CRUD and execution history.
-- DAG validation rejects duplicate IDs, invalid edges, self-edges, cycles, and oversized graphs.
-- Workflow node types: trigger, transform, condition, demo AI summary, approval placeholder, disabled HTTP request, output.
-- API rate limits, CORS allowlist, security headers, body-size guard, typed input validation.
-- PostgreSQL via Docker Compose; SQLite for local quick-start.
-- Tests and GitHub Actions CI.
+## 🚀 Live Demo
 
-## Important security notes
-This is a security-conscious starter, **not a guarantee of being unhackable or a completed penetration test**. The generated archive has not been run against live dependency registries or an external scanner. After installing dependencies, run the audit commands below and fix current advisories before deployment.
+- **Frontend:** [FlowForge AI](https://flowforge-ai-e7nl.onrender.com)
+- **Backend API:** [FlowForge AI API](https://flowforge-ai-api-o1x2.onrender.com)
+- **API Health:** [Backend Status](https://flowforge-ai-api-o1x2.onrender.com/health)
+- **API Documentation:** [API Docs](https://flowforge-ai-api-o1x2.onrender.com/docs)
 
-Known limitations: no email verification, password reset, MFA, refresh-token revocation, durable job queue, or external AI integration. The AI summary node is deterministic demo behavior and does not call an LLM. HTTP request nodes are intentionally disabled to avoid SSRF. The browser stores a short-lived bearer token in localStorage; for higher-assurance production use an HttpOnly same-site cookie/BFF design plus CSRF protections. Database tables are created automatically for the MVP; use Alembic migrations for production.
+## ✨ Overview
 
-## Quick start (local)
-Requirements: Python 3.11+, Node.js 20+.
+**FlowForge AI** is a full-stack workflow automation application designed to simplify the creation, organization, and execution of automated workflows.
+
+The platform combines a React-based frontend with a FastAPI backend, providing an interactive environment for managing workflows and communicating with backend services through REST APIs.
+
+It is designed as a portfolio-ready software engineering project demonstrating full-stack development, API integration, database management, backend architecture, and workflow execution.
+
+## 🛠️ Features
+
+- **Visual Workflow Workspace** — Interactive interface for creating and managing workflows.
+- **Workflow Management** — Create, view, update, and delete saved workflows.
+- **Workflow Execution** — Execute workflows through the backend workflow engine.
+- **Execution History** — View workflow execution records and their results.
+- **REST API Integration** — Frontend communicates with backend services through API endpoints.
+- **Persistent Data Storage** — SQLAlchemy-based database integration for application data.
+- **Responsive Interface** — Modern interface designed for a clean workflow management experience.
+- **Backend Validation** — Structured request validation and application-level error handling.
+- **Authentication and Security** — Backend security configuration and protected application functionality.
+- **Automated Testing** — Backend test suite covering core application functionality.
+
+## 💻 Tech Stack
+
+### Frontend
+- React
+- TypeScript
+- Vite
+- CSS
 
 ### Backend
+- Python
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- Uvicorn
+
+### Database
+- SQLite for local development
+- PostgreSQL-compatible configuration for production deployment
+
+### Tools & Deployment
+- Git and GitHub
+- Visual Studio Code
+- Render
+- Neon PostgreSQL (for managed PostgreSQL deployment)
+
+## 📂 Project Structure
+
+```text
+flowforge-ai/
+│
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── models.py
+│   │   ├── schemas.py
+│   │   ├── security.py
+│   │   └── workflow_engine.py
+│   │
+│   ├── tests/
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── api.ts
+│   │   ├── main.tsx
+│   │   └── styles.css
+│   │
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.ts
+│
+├── docker-compose.yml
+├── README.md
+└── .gitignore
+```
+
+## ⚙️ Run Locally
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js and npm
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/uzaam07/flowforge-ai.git
+cd flowforge-ai
+```
+
+### 2. Set Up the Backend
+
 ```bash
 cd backend
+
 python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-copy .env.example .env
 ```
-Generate a secret using `python -c "import secrets; print(secrets.token_urlsafe(48))"` and replace `SECRET_KEY` in `backend/.env`. Then:
+
+Activate the virtual environment.
+
+**Windows PowerShell:**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start the backend server:
+
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### Frontend
+Backend runs at:
+
+```text
+http://127.0.0.1:8000
+```
+
+API documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### 3. Set Up the Frontend
+
+Open a separate terminal:
+
 ```bash
 cd frontend
 npm install
-copy .env.example .env
+```
+
+Create a frontend environment file named `.env`:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
-Open `http://localhost:5173`. API defaults to `http://localhost:8000`.
 
-### Docker
-At project root:
-```bash
-cp backend/.env.example backend/.env
-# Change SECRET_KEY before running.
-docker compose up --build
+Frontend runs at:
+
+```text
+http://localhost:5173
 ```
-Open `http://localhost:5173`.
 
-## Checks
+### 4. Build the Frontend
+
+To generate a production build:
+
 ```bash
-cd backend && pytest -q
-pip-audit -r requirements.txt
-cd ../frontend && npm install && npm audit && npm run build
+npm run build
 ```
-Audit results depend on the package registry at the time you run them. No live audit is claimed by this archive.
 
-## Production checklist
-- Use HTTPS, exact CORS origins, a strong unique secret, and `DEBUG=false`.
-- Use managed PostgreSQL with TLS, backups, and a least-privilege database account.
-- Configure reverse proxy / trusted client IP handling before relying on IP-based rate limiting.
-- Add email verification, password reset, MFA if appropriate, monitoring, backups, and migrations.
-- Keep arbitrary outbound HTTP and code execution disabled unless SSRF/sandboxing controls are designed and tested.
-- Never put private provider keys in `VITE_*` variables; those are exposed to browsers.
+The generated production files are placed inside the `dist/` directory.
+
+## 🧪 Backend Testing
+
+FlowForge includes a backend test suite to validate core application functionality.
+
+Run the tests from the backend directory:
+
+```bash
+python -m pytest -q
+```
+
+The test suite was verified with:
+
+```text
+8 passed, 1 warning
+```
+
+The warning was related to a Starlette/httpx deprecation and did not affect the test results.
+
+## 🌐 Deployment
+
+FlowForge AI is deployed using **Render**.
+
+The frontend and backend are hosted as separate services.
+
+| Component | Deployment |
+|---|---|
+| Frontend | Render Static Site |
+| Backend | Render Web Service |
+| Database | Configurable database connection |
+
+### Production Environment Variables
+
+Configure the appropriate environment variables in your deployment provider.
+
+**Backend:**
+
+```env
+APP_ENV=production
+DEBUG=false
+SECRET_KEY=your-secure-secret-key
+DATABASE_URL=your-database-connection-string
+CORS_ORIGINS=https://your-frontend-domain
+TRUSTED_HOSTS=your-backend-domain
+```
+
+**Frontend:**
+
+```env
+VITE_API_BASE_URL=https://your-backend-domain
+```
+
+Never commit production secrets, `.env` files, virtual environments, local databases, or generated build directories to GitHub.
+
+## 🔒 Security & Production Notes
+
+FlowForge AI is a portfolio project and should not be considered a fully audited commercial automation platform.
+
+Before using it in a production environment, consider additional measures such as:
+
+- Comprehensive authentication and authorization testing.
+- Strong secret management and token lifecycle controls.
+- Rate limiting and request validation.
+- Workflow execution timeouts and resource limits.
+- Execution logging, monitoring, and error tracking.
+- Database backup and recovery procedures.
+- Security testing and deployment monitoring.
+
+## 🎯 Project Goals
+
+This project demonstrates practical experience in:
+
+- Full-stack application development.
+- REST API design and integration.
+- Backend development using FastAPI.
+- Database modelling and ORM integration.
+- Workflow execution and application architecture.
+- Frontend development using React and TypeScript.
+- Environment-based configuration and deployment.
+- Automated backend testing.
+
+## 👨‍💻 Author
+
+**Uzaam Shaad K**
+
+- GitHub: [@uzaam07](https://github.com/uzaam07)
+- LinkedIn: [Uzaam Shaad K](https://www.linkedin.com/in/uzaamshaad/)
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
