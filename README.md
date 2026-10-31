@@ -7,6 +7,8 @@ A full-stack workflow automation platform built with **FastAPI, SQLAlchemy, Reac
 - **Frontend:** https://flowforge-ai-e7nl.onrender.com
 - **Backend API:** https://flowforge-ai-api-o1x2.onrender.com
 
+> **Important — activate the backend first:** The backend runs on a free hosting service and may sleep after inactivity. First open the [Backend API](https://flowforge-ai-api-o1x2.onrender.com/) and wait for it to respond. Then open the [Frontend](https://flowforge-ai-e7nl.onrender.com/) and use the application. The first request may take a little while while the backend wakes up. Authentication and workspace features require both services to be available
+
 ## ✨ Overview
 
 **FlowForge AI** is a full-stack workflow automation application designed to simplify the creation, organization, and execution of automated workflows.
