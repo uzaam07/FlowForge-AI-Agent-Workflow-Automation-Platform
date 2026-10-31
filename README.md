@@ -4,10 +4,8 @@ A full-stack workflow automation platform built with **FastAPI, SQLAlchemy, Reac
 
 ## 🚀 Live Demo
 
-- **Frontend:** [FlowForge AI](https://flowforge-ai-e7nl.onrender.com)
-- **Backend API:** [FlowForge AI API](https://flowforge-ai-api-o1x2.onrender.com)
-- **API Health:** [Backend Status](https://flowforge-ai-api-o1x2.onrender.com/health)
-- **API Documentation:** [API Docs](https://flowforge-ai-api-o1x2.onrender.com/docs)
+- **Frontend:** https://flowforge-ai-e7nl.onrender.com
+- **Backend API:** https://flowforge-ai-api-o1x2.onrender.com
 
 ## ✨ Overview
 
@@ -235,19 +233,6 @@ VITE_API_BASE_URL=https://your-backend-domain
 
 Never commit production secrets, `.env` files, virtual environments, local databases, or generated build directories to GitHub.
 
-## 🔒 Security & Production Notes
-
-FlowForge AI is a portfolio project and should not be considered a fully audited commercial automation platform.
-
-Before using it in a production environment, consider additional measures such as:
-
-- Comprehensive authentication and authorization testing.
-- Strong secret management and token lifecycle controls.
-- Rate limiting and request validation.
-- Workflow execution timeouts and resource limits.
-- Execution logging, monitoring, and error tracking.
-- Database backup and recovery procedures.
-- Security testing and deployment monitoring.
 
 ## 🎯 Project Goals
 
