@@ -30,28 +30,22 @@ It is designed as a portfolio-ready software engineering project demonstrating f
 
 ## 💻 Tech Stack
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- CSS
-
-### Backend
-- Python
-- FastAPI
-- SQLAlchemy
-- Pydantic
-- Uvicorn
-
-### Database
-- SQLite for local development
-- PostgreSQL-compatible configuration for production deployment
-
-### Tools & Deployment
-- Git and GitHub
-- Visual Studio Code
-- Render
-- Neon PostgreSQL (for managed PostgreSQL deployment)
+| Layer / Category | Technologies | Purpose |
+|---|---|---|
+| **Frontend** | React, TypeScript | Build the interactive user interface and manage application components with type safety. |
+| **Build Tool** | Vite | Provide fast development server startup and optimized frontend production builds. |
+| **Styling** | CSS | Design the application layout, visual components, and responsive interface. |
+| **Backend** | Python, FastAPI | Develop backend services, handle application logic, and expose REST API endpoints. |
+| **API Server** | Uvicorn | Run and serve the FastAPI application. |
+| **Database** | SQLite, PostgreSQL | Store application data during local development and production deployment. |
+| **ORM** | SQLAlchemy | Manage database models, queries, and database interactions using Python. |
+| **Data Validation** | Pydantic | Validate incoming API requests and structure application data. |
+| **Authentication & Security** | Backend security configuration | Handle authentication-related functionality, application security, and request protection. |
+| **Testing** | Pytest | Test backend functionality and verify application behavior. |
+| **Deployment** | Render | Host and deploy the frontend and backend services. |
+| **Database Hosting** | Neon PostgreSQL | Provide managed PostgreSQL database hosting for production. |
+| **Version Control** | Git, GitHub | Track source-code changes and manage the project repository. |
+| **Development Environment** | Visual Studio Code, npm | Support application development, dependency management, and frontend workflows. |
 
 ## 📂 Project Structure
 
